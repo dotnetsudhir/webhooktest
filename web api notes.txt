@@ -1,0 +1,41 @@
+To build a pipeline, we are using request delegates, which handle each 
+HTTP request. To configure request delegates, we use the Run, Map, 
+and Use extension methods. 
+
+An IoC container is essentially a factory that is
+responsible for providing instances of the types that are requested from
+it
+
+Web API routing routes incoming HTTP requests to the particular action 
+method inside the Web API controller. As soon as we send our HTTP 
+request, the MVC framework parses that request and tries to match it to 
+an action in the controller.
+There are two ways to implement routing in the project:
+• Convention-based routing and
+• Attribute routing
+
+In short, content negotiation lets you choose the 
+content you want to get in a response to the REST API request.
+We need to configure server formatters to format a response the way we want it
+
+we must tell a server to respect the Accept header. After that, we just add the AddXmlDataContractSerializerFormatters method to support XML formatters.
+
+adding the ReturnHttpNotAcceptable = true option under the AddControllers middleware ensures that when a client requests a media type that the server doesn't know how to format it returns a 406 - Not Acceptable status.
+
+The purpose of custom formatters is to create formatter for any media types that need to be supported.
+
+Accept header is used to tell the server what types of response that the client can accept. Often this header is used to request JSON by passing the value application/json, or html by passing the value text/html. 
+
+Async programming is a parallel programming technique that allows the working process to run separately from the main application thread. Basically enhances the responsiveness of our application.
+
+There are different filter types:
+• Authorization filters – They run first to determine whether a user 
+is authorized for the current request.
+• Resource filters – They run right after the authorization filters and 
+are very useful for caching and performance.
+• Action filters – They run right before and after action method 
+execution.
+• Exception filters – They are used to handle exceptions before the 
+response body is populated.
+• Result filters – They run before and after the execution of the 
+action methods result.
